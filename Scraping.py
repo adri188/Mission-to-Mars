@@ -96,14 +96,15 @@ def mars_facts():
     df.columns=['description', 'Mars', 'Earth']
     df.set_index('description', inplace=True)
     
-    return df.to_html()
+    return df.to_html(classes="table table-striped")
 
 #mission to Mars
 def Mission_Mars(browser):
      # 1. Use browser to visit the URL 
     url = 'https://marshemispheres.com/'
-    html = browser.html
     browser.visit(url) 
+    html = browser.html
+    
     # 2. Create a list to hold the images and titles.
     hemisphere_image_urls = []
     hrefs=[]
@@ -152,7 +153,7 @@ def Mission_Mars(browser):
     except BaseException:
         return None
 #create dics
-    lt=[dict(zip(["title:"],[x])) for x in img_title]
+    lt=[dict(zip(["title"],[x])) for x in img_title]
     l=[dict(zip(["img_url"],[x])) for x in hemisphere_image_urls]
  # 4. Print the list that holds the dictionary of each image url and title.
     img_url_list=[]
@@ -166,6 +167,7 @@ def Mission_Mars(browser):
 if __name__ == "__main__":
     # If running as script, print scraped data
     print(scrape_all())
+
 
 
 

@@ -1,0 +1,10 @@
+body {
+
+    color: #090909de;
+  }
+.jumbotron {
+    background-image: url("mars.jpg");
+    background-size: 100% 100%;
+    text-align: center;
+  }
+  

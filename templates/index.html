@@ -5,13 +5,15 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
    <title>Mission To Mars</title>
-   <link rel="stylesheet" 
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-   />
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   <link rel="stylesheet" href="style.css">
  </head>
  <body>
   <div class="container">
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center" 
+         style="background-image: url('https://globalnews.ca/wp-content/uploads/2018/07/gettyimages-521405184-e1530816311202.jpg?quality=85&strip=all&w=720')
+         ;">
+
       <h1>Mission to Mars</h1>
       <!-- Add a button to activate scraping script -->
       <p><a class="btn btn-primary btn-lg" href="/scrape"
@@ -48,14 +50,28 @@
       </div>
     </div> 
     <!-- Section for High Res Images -->
-    <div class="row" id="mars-hemispheres">
-      <div class="col-md-8">
+    <div class="row" id="mars-hemispheres" style="background-color:#610d0e">
+
+      <div class="col-md-12" style="color: #e6d9d9de";>
         <h2>Mars Hemispheres</h2>
-        <img
-          src="{{mars.Mission_Mars }}"
-          class="img-responsive"
-          alt="Responsive image"
-        />
+        <div class="row"> 
+        
+          {% for hem in mars.img_url_title %}
+            <div class="col-md-3" >
+              <div class ="thumbnail">
+                <img
+                src="{{ hem.img_url }}"
+                class="img-fluid img-thumbnail"
+                alt="Responsive image"
+                />
+              <div class="caption">
+                <h3>{{ hem.title }}</h3>
+              </div>  
+            </div>
+          </div>  
+          {% endfor %}H
+
+        </div>
       </div>
     </div>   
   </div>
